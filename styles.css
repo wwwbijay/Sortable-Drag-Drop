@@ -21,6 +21,11 @@ body{
     font-weight: bold;
     font-family: Verdana, sans-serif;
 }
+.dragging.dragging{
+    background: #000;
+    border: #aaa 2px dashed;
+    opacity: 0.5;
+}
 .item-a{
     background: rgb(247, 216, 132);
 }

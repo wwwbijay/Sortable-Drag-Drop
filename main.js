@@ -16,13 +16,37 @@ draggables.forEach((draggable)=>{
 containers.forEach((container)=>{
     container.addEventListener('dragover', (e)=>{
         e.preventDefault();
+        const afterElement = getDragAfterElements(container, e.clientY);
+        console.log(afterElement);
         const draggable = document.querySelector('.dragging');
-        container.appendChild(draggable);
-        console.log('drag over');
+        if(afterElement == null){
+            container.appendChild(draggable);
+        }else{
+            container.insertBefore(draggable, afterElement);
+        }
+        
     });
     
 
 });
+
+
+function getDragAfterElements(container, y){
+    const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')];
+
+    return draggableElements.reduce((closest, child)=>{
+        const box = child.getBoundingClientRect();
+        offset = y - box.top - box.height/2;
+        
+
+        if(offset < 0 && offset > closest.offset){
+            return {offset: offset, element: child}
+        }else{
+            return closest;
+        }
+
+    },{offset: Number.NEGATIVE_INFINITY}).element;
+}
 
 
 
