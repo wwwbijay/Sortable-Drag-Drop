@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+}
+.app{
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+}
+.container{
+    background: #333;
+    padding: 1rem;
+    margin: 1rem;
+    flex: 0.5;
+}
+.draggable{
+    margin: 20px 0;
+    padding: 1rem;
+    background: #fff;
+    cursor: move;
+    border: 1px solid #000;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+}
+.item-a{
+    background: rgb(247, 216, 132);
+}
+.item-b{
+    background: rgb(181, 241, 124);
+}
+.item-c{
+    background: rgb(147, 215, 247);
+}
+.item-d{
+    background: rgb(248, 151, 208);
+}
+
